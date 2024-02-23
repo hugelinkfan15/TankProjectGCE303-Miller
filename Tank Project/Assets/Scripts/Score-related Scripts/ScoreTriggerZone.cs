@@ -11,6 +11,7 @@ public class ScoreTriggerZone : MonoBehaviour
         {
             active = false;
             ScoreManager.score++;
+            gameObject.SetActive(false);
         }
     }
 }

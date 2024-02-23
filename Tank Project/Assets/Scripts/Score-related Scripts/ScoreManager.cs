@@ -13,6 +13,8 @@ public class ScoreManager : MonoBehaviour
 
     public TMP_Text textbox;
     public int scoreToWin;
+    private float timer;
+    private float keypress;
     void Start()
     {
         gameOver = false;
@@ -37,15 +39,23 @@ public class ScoreManager : MonoBehaviour
         {
             if (won)
             {
-                textbox.text = "You win!\nPress R to Try Again!";
+                textbox.text = "You win!\nHold R to Try Again!";
             }
             else
             {
-                textbox.text = "You lose!\nPress R to Try Again!";
+                textbox.text = "You lose!\nHold R to Try Again!";
             }
-            if(Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                timer = Time.time;
+                while (!Input.GetKeyUp(KeyCode.R))
+                {
+                    keypress = Time.time - timer;
+                    if(keypress>3)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    }
+                }
             }
         }
     }
