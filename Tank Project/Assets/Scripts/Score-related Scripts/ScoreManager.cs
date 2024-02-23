@@ -47,15 +47,15 @@ public class ScoreManager : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
-                timer = Time.time;
-                while (!Input.GetKeyUp(KeyCode.R))
-                {
-                    keypress = Time.time - timer;
-                    if(keypress>3)
-                    {
+                //timer = Time.time;
+                //while (!Input.GetKeyUp(KeyCode.R))
+                //{
+                   // keypress = Time.time - timer;
+                    //if(keypress>3)
+                    //{
                         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                    }
-                }
+                    //}
+                //}
             }
         }
     }
